@@ -11,7 +11,7 @@ class Elemento:
         else:
             return False
 
-    def __str__(self):
+    def __repr__(self):
         return self.nombre
 
 
@@ -34,3 +34,13 @@ class Conjunto:
     def agregar_elemento(self, objeto: Elemento):
         if self.contiene(objeto):
             self.lista.append(objeto)
+
+    def __iadd__(self, other):
+        self.lista = self.lista + other.lista
+
+    def unir(self, other):
+        self.lista = self.lista + other.lista
+
+    def __str__(self):
+
+        return f"Conjunto {self.nombre}:: {self.lista}"
