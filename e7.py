@@ -11,10 +11,26 @@ class Elemento:
         else:
             return False
 
+    def __str__(self):
+        return self.nombre
+
+
 class Conjunto:
+    contador = 0
 
     def __init__(self, nombre: str):
+        Conjunto.contador += 1
+
         self.lista: list[Elemento] = []
         self.nombre = nombre
-        self.contador: int = 0
+        self.__id: int = Conjunto.contador
 
+    def contiene(self, objeto: Elemento):
+        if objeto not in self.lista:
+            return True
+        else:
+            return False
+
+    def agregar_elemento(self, objeto: Elemento):
+        if self.contiene(objeto):
+            self.lista.append(objeto)
