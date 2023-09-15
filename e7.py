@@ -13,5 +13,8 @@ class Elemento:
 
 class Conjunto:
 
-    def __init__(self):
-        
+    def __init__(self, nombre: str):
+        self.lista: list[Elemento] = []
+        self.nombre = nombre
+        self.contador: int = 0
+
