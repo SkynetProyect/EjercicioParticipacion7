@@ -35,12 +35,26 @@ class Conjunto:
         if self.contiene(objeto):
             self.lista.append(objeto)
 
-    def __iadd__(self, other):
+    def unir(self, other):
         self.lista = self.lista + other.lista
 
-    def unir(self, other):
+    def __iadd__(self, other):
         self.lista = self.lista + other.lista
 
     def __str__(self):
 
         return f"Conjunto {self.nombre}:: {self.lista}"
+
+    def __repr__(self):
+        return self.nombre
+
+    @staticmethod
+    def intersectar(cls, cls2):
+
+        conjunto: Conjunto = Conjunto(f"{cls} intersectado {cls2}")
+        for i in cls.lista:
+            if i in cls2.lista:
+                cls.agregar_elemento(i)
+
+        return conjunto
+
